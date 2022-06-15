@@ -1,4 +1,6 @@
-//路由表
+/* 
+    路由表
+*/
 
 import Vue from 'vue';
 import Router from 'vue-router';
