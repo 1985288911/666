@@ -1,3 +1,4 @@
+<!-- 目前的首页 打包之后首页是index.html -->
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
