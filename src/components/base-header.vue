@@ -12,18 +12,21 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import { mapGetters } from 'vuex';
 export default {
   props:{
   
   },
   components:{
-    // HelloWorld
+    
   },
   data(){
     return {
-        getCollapse:false,//TODO
+        // getCollapse:false,//TODO
     }
+  },
+  computed: {
+    ...mapGetters(['getCollapse']),
   },
   created(){
   

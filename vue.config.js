@@ -19,7 +19,7 @@ module.exports = defineConfig({
       .set('@img', resolve('src/assets/img'))
       .set('@config', resolve('src/config'))
       .set('@modules', resolve('src/modules'))
-      .set('@style', resolve('src/assets/style'));
+      .set('@style', resolve('src/assets/style'))
   },
 
   // 设置scss全局变量
