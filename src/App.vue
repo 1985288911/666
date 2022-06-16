@@ -25,13 +25,40 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+<style lang="scss">
+*{
+  margin:0;
+  padding:0;
+}
+html,body,#app{
+  width:100%;
+  height:100%;
+}
+// @font-face {
+//   font-family: "NotoSansSC-Light";
+//   src: url("assets/style/font/NotoSansSC-Light/NotoSansSC-Light.woff2") format("woff2"),
+//        url("assets/style/font/NotoSansSC-Light/NotoSansSC-Light.woff") format("woff"),
+//        url("assets/style/font/NotoSansSC-Light/NotoSansSC-Light.ttf") format("truetype"),
+//        url("assets/style/font/NotoSansSC-Light/NotoSansSC-Light.eot") format("embedded-opentype"),
+//        url("assets/style/font/NotoSansSC-Light/NotoSansSC-Light.svg") format("svg");
+// }
+#app{
+  font-family: NotoSansSC-Light;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #434343;
+  font-size: 14px;
 }
+.clearfix:after{
+  content: "020"; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;  
+}
+
+.el-table .el-button+.el-button{
+  margin-left: 0 !important;
+}
+
 </style>
