@@ -49,7 +49,7 @@ html,body,#app{
   color: #434343;
   font-size: 14px;
 }
-.clearfix:after{
+/* .clearfix:after{
   content: "020"; 
   display: block; 
   height: 0; 
@@ -59,6 +59,6 @@ html,body,#app{
 
 .el-table .el-button+.el-button{
   margin-left: 0 !important;
-}
+} */
 
 </style>

@@ -138,7 +138,7 @@ export default {
       background: #ffffff;
       border-bottom: 1px #f0f0f1 solid;
     
-      // 头部左侧
+      // // 头部左侧
       .header-left {
         width: 288px;
         display: flex;
@@ -174,7 +174,7 @@ export default {
         margin-left: 50px;
       }
     
-      // 头部中间
+      // // 头部中间
       .header-center {
         .header-status-collapse {
           height: 100%;

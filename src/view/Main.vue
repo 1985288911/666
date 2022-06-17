@@ -49,38 +49,38 @@
     background: #fafafa;
     display: flex;
     flex-direction: column;
-    .content {
-      overflow: hidden;
-      display: flex;
-      .content-box {
-        position: relative;
-        width: calc(100% - 288px);
-        display: flex;
-        flex-direction: column;
-        overflow-y: scroll;
-      }
-      .content-box.collapse {
-        position: relative;
-        width: calc(100% - 67px);
-        display: flex;
-        flex-direction: column;
-        overflow-y: scroll;
-      }
-      .aside-level1 {
-        width: 288px !important;
-      }
-      .aside-level2 {
-           width: 66px !important;
-      }
-    }
+    // .content {
+    //   overflow: hidden;
+    //   display: flex;
+    //   .content-box {
+    //     position: relative;
+    //     width: calc(100% - 288px);
+    //     display: flex;
+    //     flex-direction: column;
+    //     overflow-y: scroll;
+    //   }
+    //   .content-box.collapse {
+    //     position: relative;
+    //     width: calc(100% - 67px);
+    //     display: flex;
+    //     flex-direction: column;
+    //     overflow-y: scroll;
+    //   }
+    //   .aside-level1 {
+    //     width: 288px !important;
+    //   }
+    //   .aside-level2 {
+    //        width: 66px !important;
+    //   }
+    // }
   }
-  .imgitem{
+  /* .imgitem{
       width: 24px;
       height: 24px;
-  }
+  } */
   </style>
   <style lang="scss">
-  .el-table{
+  /* .el-table{
       .cell{
           .el-button--text{
               padding-left: 0;
@@ -103,5 +103,5 @@
     // border-radius: 10px; //滚动条的背景区域的圆角
     background: #fff; //滚动条的背景颜色
     border: 1px solid #F0F0F1;
-  }
+  } */
   </style>
