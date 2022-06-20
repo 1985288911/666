@@ -1,5 +1,6 @@
 <!-- 
     定义:app.vue下面的第一子组件
+    核心：el-menu、el-submenu、Menu 或者 el-menu-item.....breadcrumbNav......router-view
  -->
 <template>
   <div class="mainContainer container">
@@ -15,20 +16,32 @@
         <el-menu v-show="!login" :default-active="active" router  :class="getCollapse == true ? 'el-menu-vertical-demo aside-level2' : 'el-menu-vertical-demo aside-level1'" :collapse="getCollapse" :collapse-transition="false" :default-openeds="$router.path" style="overflow-y:auto;height:100%" unique-opened @select="handleMenuSelect">
           <template v-for="list in menuList" >
               <!-- el-submenu 一级菜单 文案 -->
+              <!-- 有子项 -->
               <el-submenu v-if="list.children.length>0&& !GLOBAL.hasPermission(list.permission)" :key="list.path" :disabled="list.path==''"  :index="list.path"  >
                 <template slot="title"  style="padding-left:10px" >
                   <img class="imgitem" :src="list.icon" alt="">
                   <span slot="title">{{getTitle(list.title)}}</span>
                 </template>
-                <!-- <Menu :menuList="list.children"></Menu> -->
+                <Menu :menuList="list.children"></Menu>
               </el-submenu>
-              <!-- <el-menu-item v-if="list.children.length==0&& !GLOBAL.hasPermission(list.permission)" :index="list.path"  :key="list.path" :disabled="list.path==''">
+              <!-- 没有子项 -->
+              <el-menu-item v-if="list.children.length==0&& !GLOBAL.hasPermission(list.permission)" :index="list.path"  :key="list.path" :disabled="list.path==''">
                 <img v-if="list.icon !=''" class="imgitem" :src="list.icon" alt="">
                 <span>{{getTitle(list.title)}}</span>
-              </el-menu-item > -->
+              </el-menu-item >
           </template>
         </el-menu>
         <!-- 下部-内容区 -->
+        <!-- 内容区 -->
+        <div :class="getCollapse == true ? 'content-box collapse':'content-box'" v-show="!login" id="content" >
+          <!-- 面包屑 -->
+          <breadcrumbNav :currentPath="breads"></breadcrumbNav>
+          <!-- 内容部分 -->
+          <keep-alive>
+            <router-view v-if="$route.meta.isKeep" />
+          </keep-alive>
+          <router-view v-if="!$route.meta.isKeep" />
+        </div>
       </div>
     </div>
   
@@ -38,6 +51,7 @@
 <script>
   import baseHeader from '@components/base-header.vue';
   import Menu from '@components/menu.vue';
+  import breadcrumbNav from '@components/breadcrumb.vue';
   import { mapGetters } from 'vuex';
   export default {
     props:{
@@ -45,7 +59,8 @@
     },
     components:{
       baseHeader,
-      Menu
+      Menu,
+      breadcrumbNav
     },
     computed: {
       ...mapGetters(['getCollapse']),
@@ -56,18 +71,18 @@
         dataobj:{},//TODO
         active: 'item-library',
         menuList: [
-          {
+          {/* 一级菜单 */
             icon: require('@img/aside/item-management.png'),
             iconActive: require('@img/aside/progress-management.png'),//选中时得图标
             title: 'itmeManagement',
             permission:'2ec41af2-25b2-4ab4-9d98-5ef2f481fe4d',
-            path: 'item-management',
+            path: 'item-management',/* index */
             children: [
               {icon: '',title: 'itemLibrary',path: 'item-library',permission:'fe21dbf8-0a6a-4fd6-8db0-3f0a28a9906b',children: [],},
-              // {icon: '',title: 'groupLibrary',path: 'group-library',permission:'c60ced38-924f-4e7d-83a1-6a8ae89e1486',children: [],},
-              // {icon: '',title: 'categoryLibrary',path: 'category-library',permission:'fef7e208-96f7-4f29-936c-7acb270956d9',children: [],},
-              // {icon: '',title: 'visualLibrary',path: 'light',permission:'2f02c98b-88cd-483d-9798-1c085afe192a',children: [],},
-              // {icon: '',title: 'ratecard',path: 'ratecard',permission:'6e5ecd30-5494-4b70-b04a-3b2589900ff4',children: [],},
+              {icon: '',title: 'groupLibrary',path: 'group-library',permission:'c60ced38-924f-4e7d-83a1-6a8ae89e1486',children: [],},
+              {icon: '',title: 'categoryLibrary',path: 'category-library',permission:'fef7e208-96f7-4f29-936c-7acb270956d9',children: [],},
+              {icon: '',title: 'visualLibrary',path: 'light',permission:'2f02c98b-88cd-483d-9798-1c085afe192a',children: [],},
+              {icon: '',title: 'ratecard',path: 'ratecard',permission:'6e5ecd30-5494-4b70-b04a-3b2589900ff4',children: [],},
             ],
           },
           /* dashboard start */
@@ -167,10 +182,35 @@
             ],
           } */
         ],
+        breads: [],
       }
     },
     created(){
-
+      let permission = this.GLOBAL.hasPermission(this.$route.meta.permission)/* true:没权限 */
+      if(permission){
+        this.$router.push({
+          path: '/nodata', //直接路由到详情页 type注意 
+          query: {
+            name:this.$route.meta.bread[0].name
+          }
+        });
+      }
+      
+      if(this.$route.path === '/'){
+          this.login = true;
+        }else{
+          this.login = false;
+        }
+        if(this.$store.state.userInfo.id == 'acc4fd86-900a-4f3f-a105-c5b29483c670' || this.$store.state.userInfo.id == 'f370e9a5-6787-4ea4-a810-edb45d43f30d'){
+          let index = this.menuList.findIndex(item => item.title == 'userManagement')
+          this.menuList.splice(index,1)
+        }
+      this.breads = this.$route.meta.bread;
+      // this.breads[0] = this.$route.name;
+      this.active = this.$route.meta.menuActive
+      if (this.$route.meta.tabId) {
+        this.dataobj = this.$route.meta;
+      }
     },
     methods:{
       /* 辅助函数 */// 菜单显示的文字

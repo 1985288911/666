@@ -1,5 +1,5 @@
 <template>
-  <div>item-library</div>
+  <div>group-library.vue</div>
 </template>
 
 <script>

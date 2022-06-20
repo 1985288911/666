@@ -1,5 +1,7 @@
 /* 
     路由表
+    meta:简单来说就是路由元信息，也就是每个路由身上携带的信息
+    当一个路由匹配成功后，它可能匹配多个路由记录
 */
 
 import Vue from 'vue';
@@ -29,6 +31,17 @@ const routes = [
                     isKeep: true,
                 },
             },
+            {
+                path: 'nodata',
+                name: 'noData',
+                component: () => import('@modules/nodata'),
+                meta: {
+                    menuActive:'nodata',
+                    name: 'nodata',
+                    tabId: '0',
+                    path: 'nodata',
+                },
+            },
             /* {
                 path: 'details-item',
                 name: 'Item Details',
@@ -42,25 +55,25 @@ const routes = [
                     bread: [{ name: 'itemManagement', path: '/item-library' }, { name: 'itemLibrary', path: '/item-library' },{name:'',path:'/details-item'}],
 
                 },
-            },
+            }, */
             {
                 path: 'group-library',
                 name: 'Group Library',
                 component: () =>
-                    import('@modules/material-management/item-management/group-library'),
+                    import('@modules/material-management/item-management/group-library.vue'),
                 meta: {
                     menuActive:'group-library',
-                    isKeep: true,
-                    permission:'c60ced38-924f-4e7d-83a1-6a8ae89e1486',
-                    menuActive: 'group-library',
                     bread: [{ name: 'itemManagement', path: '/item-library' }, { name: 'groupLibrary', path: '/group-library' }],
-                    routerParent: 'Group Management',
+                    // routerParent: 'Group Management',/* TODO */
+                    routerParent: 'Item Management',
                     name: 'groupLibrary',
                     tabId: '16',
+                    permission:'c60ced38-924f-4e7d-83a1-6a8ae89e1486',
                     path: 'group-library',
+                    isKeep: true,
                 },
             },
-            {
+            /* {
                 path: 'details-group',
                 name: 'Group Details',
                 component: () =>
@@ -72,7 +85,7 @@ const routes = [
                     permission:'c60ced38-924f-4e7d-83a1-6a8ae89e1486',
                     bread: [{ name: 'itemManagement', path: '/item-library' }, { name: 'groupLibrary', path: '/group-library' },{name:'',path:'/details-group'}],
                 },
-            },
+            }, */
             {
                 path: 'category-library',
                 name: 'Category Library',
@@ -83,15 +96,16 @@ const routes = [
                 meta: {
                     menuActive: 'category-library',
                     bread: [{ name: 'itemManagement', path: '/item-library' }, { name: 'categoryLibrary', path: '/category-library' }],
-                    isKeep: true,
-                    routerParent: 'Category Management',
+                    // routerParent: 'Category Management',
+                    routerParent: 'Item Management',
                     name: 'categoryLibrary',
-                    permission:'fef7e208-96f7-4f29-936c-7acb270956d9',
                     tabId: '17',
+                    permission:'fef7e208-96f7-4f29-936c-7acb270956d9',
                     path: 'category-library',
+                    isKeep: true,
                 },
             },
-            {
+            /* {
                 path: 'details-category',
                 name: 'Category Details',
                 component: () =>
@@ -103,26 +117,8 @@ const routes = [
                     permission:'fef7e208-96f7-4f29-936c-7acb270956d9',
                     bread: [{ name: 'itemManagement', path: '/item-library' }, { name: 'categoryLibrary', path: '/category-library' },{name:'',path:'/details-category'}],
                 },
-            },
-            {
-                path: 'ratecard',
-                name: 'Ratecard',
-                component: () =>
-                    import(
-                        '@modules/material-management/item-management/ratecard'
-                    ),
-                meta: {
-                    menuActive: 'ratecard',
-                    permission:'6e5ecd30-5494-4b70-b04a-3b2589900ff4',
-                    bread: [{ name: 'itemManagement', path: '/item-library' }, { name: 'ratecard', path: '/ratecard' }],
-                    isKeep: true,
-                    routerParent: 'Ratecard',
-                    name: 'ratecard',
-                    tabId: '29',
-                    path: 'ratecard',
-                },
-            },
-            {
+            }, */
+            /* {
                 path: 'details-texture-accessory',
                 name: 'Ratecard Details',
                 component: () =>
@@ -135,7 +131,7 @@ const routes = [
                     bread: [{ name: 'itemManagement', path: '/item-library' }, { name: 'ratecard', path: '/item-library' },{name:'Ratecard Details',path:'/details-texture-accessory'}],
 
                 },
-            },
+            }, */
             {
                 path: 'light',
                 name: 'Visual Library',
@@ -145,16 +141,36 @@ const routes = [
                     ),
                 meta: {
                     menuActive: 'light',
-                    permission:'2f02c98b-88cd-483d-9798-1c085afe192a',
                     bread: [{ name: 'itemManagement', path: '/item-library' }, { name: 'visualLibrary', path: '/light' }],
-                    isKeep: true,
-                    routerParent: 'Visual Library',
+                    // routerParent: 'Visual Library',
+                    routerParent: 'Item Management',
                     name: 'visualLibrary',
                     tabId: '30',
+                    permission:'2f02c98b-88cd-483d-9798-1c085afe192a',
                     path: 'light',
+                    isKeep: true,
                 },
             },
             {
+                path: 'ratecard',
+                name: 'Ratecard',
+                component: () =>
+                    import(
+                        '@modules/material-management/item-management/ratecard'
+                    ),
+                meta: {
+                    menuActive: 'ratecard',
+                    bread: [{ name: 'itemManagement', path: '/item-library' }, { name: 'ratecard', path: '/ratecard' }],
+                    // routerParent: 'Ratecard',
+                    routerParent: 'Item Management',
+                    name: 'ratecard',
+                    tabId: '29',
+                    permission:'6e5ecd30-5494-4b70-b04a-3b2589900ff4',
+                    path: 'ratecard',
+                    isKeep: true,
+                },
+            },
+            /* {
                 path: 'details-light',
                 name: 'Visual Details',
                 component: () =>

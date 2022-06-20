@@ -3,6 +3,7 @@
     <div>
       <template v-for="(list,index) in this.menuList" >
         <!--组件在封装时需要传index ，index值为你的当前页面的名称eg（:index='菜单管理'    !！！这里为关键点）  -->
+        <!-- 有子项 -->
         <el-submenu  v-if="list.children.length>0&& !GLOBAL.hasPermission(list.permission)" :disabled="list.path=='' " :key="index" :index="list.path">
           <template slot="title"  style="padding-left:10px" >
             <img class="imgitem" :src="list.icon" alt="">
@@ -10,10 +11,11 @@
           </template>
           <Menu :menuList="list.children"></Menu>
         </el-submenu>
-        <!-- <el-menu-item  v-if="list.children.length==0&& !GLOBAL.hasPermission(list.permission)" :index="list.path" :disabled="list.path==''" :key="index"  @click.native="changeRoute(list.title)">
+        <!-- 没有子项 -->
+        <el-menu-item  v-if="list.children.length==0&& !GLOBAL.hasPermission(list.permission)" :index="list.path" :disabled="list.path==''" :key="index"  @click.native="changeRoute(list.title)">
             <img v-if="list.icon !=''" class="imgitem" :src="list.icon" alt="">
             <span>{{getTitle(list.title)}}</span>
-        </el-menu-item > -->
+        </el-menu-item >
       </template>
     </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div>item-library</div>
+  <div>ratecard</div>
 </template>
 
 <script>

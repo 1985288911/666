@@ -1,5 +1,5 @@
 <template>
-  <div>item-library</div>
+  <div>light</div>
 </template>
 
 <script>
