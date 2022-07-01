@@ -91,7 +91,7 @@ export default {
     } */
   },
   getDateNoTime(date,type) {
-      /* if(date!= null){
+      if(date!= null){
         var date = new Date(date);
         var YY = date.getFullYear();
         var MM = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
@@ -120,7 +120,7 @@ export default {
         if(type == 7){
           return YY +'-'+ MM +'-'+ DD + ' ' + h + ':' + m + ':' + s;
         }
-      } */
+      }
   },
   // 设置cookie
   setCookie(name,value,expire){
