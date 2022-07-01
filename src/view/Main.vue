@@ -187,7 +187,7 @@
     },
     created(){
       let permission = this.GLOBAL.hasPermission(this.$route.meta.permission)/* true:没权限 */
-      if(permission){
+    /*   if(permission){
         this.$router.push({
           path: '/nodata', //直接路由到详情页 type注意 
           query: {
@@ -210,7 +210,7 @@
       this.active = this.$route.meta.menuActive
       if (this.$route.meta.tabId) {
         this.dataobj = this.$route.meta;
-      }
+      } */
     },
     methods:{
       /* 辅助函数 */// 菜单显示的文字
