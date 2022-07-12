@@ -88,8 +88,8 @@
               {icon: '',title: 'ratecard',path: 'ratecard',permission:'6e5ecd30-5494-4b70-b04a-3b2589900ff4',children: [],},
             ],
           },
-          /* dashboard start */
-          /* {
+          /* Report */
+          {
             icon: require('@img/aside/report.png'),
             iconActive: require('@img/aside/report2.png'),
             title: 'report',
@@ -98,32 +98,26 @@
             children: [
               {icon: '',title: 'vmDashboard',path: 'vm-dashboard',permission:'dc92d02b-a0ab-42f6-923e-4f2d2d8e8a95',children: [],},
             ],
-          }, */
-          /* dashboard end */
-          /* {
+          },
+          /* 项目管理 */
+          {
             icon: require('@img/aside/progress-management.png'),
             title: 'projectManagement',
             path: 'progress-management',
             permission:'4c673035-3cb5-42fc-a6f3-6a9fc6c619ef,439c9c8c-bd94-4278-aab6-0a36633c17d8,70e3f21a-156d-4212-b074-cb355c63e1f6,92645682-5983-4d9a-b4fe-9b351b5d4884,6b34726a-73d7-49c0-b189-5156ef41ce38',
             permission:'menu',
             children: [
-              {icon: '',title: 'newOpening',permission:'4c673035-3cb5-42fc-a6f3-6a9fc6c619ef',path: 'new-counter',children: [],},
-              {icon: '',title: 'renovation',permission:'menu',path: '',children: [],},
-              {icon: '',title: 'modification',permission:'menu',path: '',children: [],},
-              {icon: '',title: 'closeCounter',permission:'menu',path: 'close-counter',children: [],},
-              {icon: '',title: 'newLaunch',permission:'70e3f21a-156d-4212-b074-cb355c63e1f6,439c9c8c-bd94-4278-aab6-0a36633c17d8',path: 'new-launch',children: [],},
-              {icon: '',title: 'maintenance',permission:'92645682-5983-4d9a-b4fe-9b351b5d4884',path: 'repair-list',children: [],},
-              {icon: '',title: 'replenishment',permission:'6b34726a-73d7-49c0-b189-5156ef41ce38',path: 'replenishment-list',children: [],},
               {icon: '',title: 'massProduction',permission:'menu',path: 'mass-production',children: [],},
+              {icon: '',title: 'newOpening',permission:'4c673035-3cb5-42fc-a6f3-6a9fc6c619ef',path: 'new-counter',children: [],},
+              // {icon: '',title: 'renovation',permission:'menu',path: '',children: [],},
+              // {icon: '',title: 'modification',permission:'menu',path: '',children: [],},
+              // {icon: '',title: 'closeCounter',permission:'menu',path: 'close-counter',children: [],},
+              // {icon: '',title: 'newLaunch',permission:'70e3f21a-156d-4212-b074-cb355c63e1f6,439c9c8c-bd94-4278-aab6-0a36633c17d8',path: 'new-launch',children: [],},
+              // {icon: '',title: 'maintenance',permission:'92645682-5983-4d9a-b4fe-9b351b5d4884',path: 'repair-list',children: [],},
+              // {icon: '',title: 'replenishment',permission:'6b34726a-73d7-49c0-b189-5156ef41ce38',path: 'replenishment-list',children: [],},
             ],
           },
-          {
-            icon: require('@img/aside/counter-management.png'),
-            title: 'counterManagement',
-            path: 'counter-management',
-            permission:'0d157751-3f26-4311-ab74-8514050e6091',
-            children: [],
-          },
+          /* Store M */
           {
             icon: require('@img/aside/store-management.png'),
             title: 'storeManagement',
@@ -131,6 +125,15 @@
             permission:'d1e4c06f-9ce2-4b0e-86ee-770535e5fb6e',
             children: [],
           },
+          /* Counter M */
+          {
+            icon: require('@img/aside/counter-management.png'),
+            title: 'counterManagement',
+            path: 'counter-management',
+            permission:'0d157751-3f26-4311-ab74-8514050e6091',
+            children: [],
+          },
+          /* Inventory M */
           {
             icon: require('@img/aside/inventory-management.png'),
             title: 'inventoryManagement',
@@ -138,6 +141,7 @@
             permission:'bb7ed9e0-7112-4ed5-833c-9f4c975a5a41',
             children: [],
           },
+          /* Supplier M */
           {
             icon: require('@img/aside/supplier-management.png'),
             title: 'supplierManagement',
@@ -145,6 +149,7 @@
             permission:'2e56e15b-a358-4c01-8100-c805de1bbd39',
             children: [],
           },
+          /* User M */
           {
             icon: require('@img/aside/user-management.png'),
             title: 'userManagement',
@@ -152,38 +157,10 @@
             permission:'a7ca6820-7b87-42a3-a702-53e3f082e379',
             children: [
               {icon: '',title: 'user',path: 'user',permission:'b5e3faf8-a616-4da5-8e6c-32d5c3ac1736',children: [],},
-              {icon: '',title: 'functionRole',path: 'function-role',permission:'d81a1dd5-98ef-4b96-8547-12fdd5e9c1d1',children: [],},
-              {icon: '',title: 'dataRole',path: 'data-role-list',permission:'b4545470-c62a-40b1-b92b-4ee45ca70d16',children: [],},
+              // {icon: '',title: 'functionRole',path: 'function-role',permission:'d81a1dd5-98ef-4b96-8547-12fdd5e9c1d1',children: [],},
+              // {icon: '',title: 'dataRole',path: 'data-role-list',permission:'b4545470-c62a-40b1-b92b-4ee45ca70d16',children: [],},
             ],
           },
-          {
-            icon: require('@img/aside/order-management.png'),
-            title: 'orderManagement',
-            path: 'order-management',
-            permission:'413e5168-091d-4497-813a-28462389f8c0',
-            children: [
-                {icon: '', title: 'productionRequest',permission:'333d3e53-3d81-4fcd-9ec9-7193054bd5d6',path: 'po',children: [],},
-                {icon: '', title: 'visualRequest',permission:'133a0677-a64c-4378-b543-533cffbb9348',path: 'visual-request',children: [],},
-                {icon: '', title: 'massProduction',permission:'menu',path: '',children: [],},
-                {icon: '', title: 'installationOrder',permission:'menu',path: '',children: [],},
-                {icon: '', title: 'transportationOrder',permission:'menu',path: '',children: [],},
-                {icon: '', title: 'replenishmentOrder',permission:'menu',path: '',children: [],},
-            ],
-          }, */
-          /* Finance Management */
-          /* {
-            icon: require('@img/aside/finance.png'),
-            title: 'budgetManagement',
-            permission:'2823b044-3016-4e22-8be0-79cb6a0d4a9b',
-            path: 'finance',
-            children: [
-              {icon: '', title: 'masterData',permission:'7fc6b2f7-d7dd-4619-8b90-bc8048abf8e2', path: 'finance-md',children: [],},
-              {icon: '', title: 'budget',permission:'11884eb1-5040-4cb2-8637-00265f7b2d39,e2ae2b17-326e-46f6-bc34-16e4c6c5dece,533844c3-fabf-4007-9239-30ffd42871c7,cc33e0a7-273f-4f12-a7c0-8e1ebdd39206',path: 'finance-budget', children: [],},
-              {icon: '', title: 'actual',permission:'de174797-c36a-44a5-acba-23a4d7e8afcd,d5007f97-2a5e-4e73-86e4-f7c80e8a7954,9f98e948-514d-46dd-8ad5-89f044a051ab', path: 'finance-actual', children: [],},
-              {icon: '', title: 'trend', permission:'cf55dee2-b076-492a-9661-3aa3694a78f0',path: 'finance-trend',children: [], },
-              {icon: '', title: 'summary',permission:'3e45dd7c-866d-4fef-b62a-cfd3b763ba5a', path: 'finance-summary', children: [],},
-            ],
-          } */
         ],
         breads: [
           /* 面包屑 */
@@ -265,6 +242,7 @@
       }
       .aside-level1 {
         width: 288px !important;
+        min-height: 660px;
       }
       .aside-level2 {
            width: 66px !important;
