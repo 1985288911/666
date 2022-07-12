@@ -68,10 +68,13 @@
     data(){
       return {
         login:false,//TODO
-        dataobj:{},//TODO
+        dataobj:{
+          /* meta数据 */
+        },//TODO
         active: 'item-library',
         menuList: [
-          {/* 一级菜单 */
+          {
+            /* 一级菜单 */
             icon: require('@img/aside/item-management.png'),
             iconActive: require('@img/aside/progress-management.png'),//选中时得图标
             title: 'itmeManagement',
@@ -182,35 +185,39 @@
             ],
           } */
         ],
-        breads: [],
+        breads: [
+          /* 面包屑 */
+        ],
       }
     },
     created(){
-      let permission = this.GLOBAL.hasPermission(this.$route.meta.permission)/* true:没权限 */
-    /*   if(permission){
+      let permission = this.GLOBAL.hasPermission(this.$route.meta.permission)/* true:没权限 false:有权限 */
+      /* TODO if(permission){
         this.$router.push({
           path: '/nodata', //直接路由到详情页 type注意 
           query: {
             name:this.$route.meta.bread[0].name
           }
         });
-      }
+      } */
       
-      if(this.$route.path === '/'){
-          this.login = true;
-        }else{
-          this.login = false;
-        }
-        if(this.$store.state.userInfo.id == 'acc4fd86-900a-4f3f-a105-c5b29483c670' || this.$store.state.userInfo.id == 'f370e9a5-6787-4ea4-a810-edb45d43f30d'){
-          let index = this.menuList.findIndex(item => item.title == 'userManagement')
-          this.menuList.splice(index,1)
-        }
+      /* TODO if(this.$route.path === '/'){
+        this.login = true;
+      }else{
+        this.login = false;
+      } */
+
+      /* TODO if(this.$store.state.userInfo.id == 'acc4fd86-900a-4f3f-a105-c5b29483c670' || this.$store.state.userInfo.id == 'f370e9a5-6787-4ea4-a810-edb45d43f30d'){
+        let index = this.menuList.findIndex(item => item.title == 'userManagement')
+        this.menuList.splice(index,1)
+      } */
+
       this.breads = this.$route.meta.bread;
       // this.breads[0] = this.$route.name;
       this.active = this.$route.meta.menuActive
       if (this.$route.meta.tabId) {
         this.dataobj = this.$route.meta;
-      } */
+      }
     },
     methods:{
       /* 辅助函数 */// 菜单显示的文字
@@ -227,11 +234,6 @@
                   item.icon = require('@img/aside/'+item.path+'.png');
               }
           })
-          // if(index == 'counter-management'){
-          //     this.menuList[2].icon = require('@img/aside/counter-management2.png');
-          // }else {
-          //     this.menuList[2].icon = require('@img/aside/counter-management.png');
-          // }
       },
     },
   }

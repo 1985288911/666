@@ -43,7 +43,8 @@ export default {
       ],
       tableListData: [
         {
-          workflowId:'id',brandName:'brandName',projectName:'projectName',launchDate:111111111,scDate:111111111,poDate:111111111,deliveryDate:111111111
+          workflowId:'id',brandName:'brandName',projectName:'projectName',launchDate:111111111,scDate:111111111,poDate:111111111,deliveryDate:111111111,
+          wang1:'1',wang2:'2',wang3:'3'
         },
       ],
       tableHide:[
@@ -87,7 +88,7 @@ export default {
         let list = []
         this.multipleSelection.forEach((item,k)=>{
           list.push({
-            "webColumnName":item.name, "dataColumnName":item.dataColumnName, "webColumnWidth": 11, "sort": this.tableHideLength+Number(k)+1
+            "webColumnName":item.name, "dataColumnName":item.dataColumnName, "webColumnWidth": 8, "sort": this.tableHideLength+Number(k)+1
           })
         })
         this.realTableHide = this.tableHide.concat(list)

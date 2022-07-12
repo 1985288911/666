@@ -2,7 +2,7 @@
 <template>
     <div>
       <template v-for="(list,index) in this.menuList" >
-        <!--组件在封装时需要传index ，index值为你的当前页面的名称eg（:index='菜单管理'    !！！这里为关键点）  -->
+        <!--组件在封装时需要传index ，index值为你的当前页面的名称eg（:index='菜单管理'!!!这里为关键点）  -->
         <!-- 有子项 -->
         <el-submenu  v-if="list.children.length>0&& !GLOBAL.hasPermission(list.permission)" :disabled="list.path=='' " :key="index" :index="list.path">
           <template slot="title"  style="padding-left:10px" >

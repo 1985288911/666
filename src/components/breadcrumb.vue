@@ -27,17 +27,16 @@ export default{
             showBread:true,
         }
     },
-    _methods:{
+    methods:{
         getTitle(title){
             let str = 'breadcrumb.'+ title;
             // console.log("面包屑：：：：", this.$t(str))
             return this.$t(str).search("breadcrumb.") == -1 ? this.$t(str) : title;
         },
         clickFunc(list){
-            console.log("list",list)
+            // console.log("list",list,this.$route.path)
             if(list.path != this.$route.path){
                 if(list.query){//路由存在query信息时
-                    console.log("list.query",list.query)
                     this.$router.push({
                         path: list.path,
                         query:list.query
@@ -52,14 +51,15 @@ export default{
             }
         }
     },
-    _created(){
-        Bus.$on("deletTag", (val, val1) => {
+    created(){
+        console.log('this.currentPath',this.currentPath)
+        /* TODOBus.$on("deletTag", (val, val1) => {
             if(val == 0 ){
                 this.showBread = false
             }else{
                 this.showBread = true
             }
-        });
+        }); */
     }
 }
 </script>

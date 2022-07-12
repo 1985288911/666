@@ -63,7 +63,7 @@ const routes = [
                     import('@modules/material-management/item-management/group-library.vue'),
                 meta: {
                     menuActive:'group-library',
-                    bread: [{ name: 'itemManagement', path: '/item-library' }, { name: 'groupLibrary', path: '/group-library' }],
+                    bread: [{ name: 'itemManagement', path: '/item-library' }, { name: 'groupLibrary', path: '/group-library' }],/* 默认第一级面包屑显示管理下面的第一个项目 */
                     // routerParent: 'Group Management',/* TODO */
                     routerParent: 'Item Management',
                     name: 'groupLibrary',
